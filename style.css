@@ -1,0 +1,32 @@
+@font-face{
+    font-family: "Satisfy";
+    src: url("Satisfy-Regular.ttf") format("truetype");
+}
+.navtop{
+    background-color: whitesmoke;
+}
+.logo{
+    font-family: "Satisfy";
+}
+.icono{
+    margin-left:75%;
+}
+nav img{
+    height: 35px;
+    margin-left:80%;
+}
+.banner img{
+    width:100%;
+}
+.banner{
+    margin-top: 70px;
+}
+h1{
+    text-align: center;
+}
+.card{
+    margin-left:4%;
+    margin-right:4%;
+    width:10000px;
+
+}

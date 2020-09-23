@@ -1,60 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <main>
-        <header>
-            <!--Navbar-->
-            <nav class="navbar navtop fixed-top navbar-expand-lg navbar-light">
-                <a class="navbar-brand logo" href="#">Restaurant & Lounge</a>
-                <div class="icono">
-                    <img src="carrito.png" href="" alt="Icono carrito de compras">
-                </div>
-                <span style="margin-left:40px" id="numItems">0 items</span>
-            </nav>
-        </header>
-        <div class="banner">
-            <img src="hamburguesa.png" alt="Banner hamburgesa">
-        </div>
-        <hr>
-        <!--Menu-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                  <a class="nav-item nav-link active" href="#">Burgers <span class="sr-only">(current)</span></a>
-                  <a class="nav-item nav-link" href="#">Tacos</a>
-                  <a class="nav-item nav-link" href="#">Salads</a>
-                  <a class="nav-item nav-link " href="#">Desserts</a>
-                  <a class="nav-item nav-link " href="#">Drinks & Sides</a>
-                </div>
-              </div>
+      <header>
+        <!--Navbar-->
+        <nav class="navbar navtop fixed-top navbar-expand-lg navbar-light">
+          <a class="navbar-brand logo">Restaurant & Lounge</a>
+          <div class="cart" onclick="carrito()">
+            <img
+              class="icono"
+              src="images/carrito.png"
+              alt="Icono carrito de compras"
+            />
+            <a id="quantity">0</a> Items
+          </div>
         </nav>
-        <hr>
-        <!--Hamburgers-->
-        <h1>Burgers</h1>
-        <hr>
-        <div id="content">
+      </header>
+      <div class="banner">
+        <img src="images/hamburguesa.png" alt="Banner hamburguesa" />
+      </div>
+      <hr />
+      <!--Menu-->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" onclick="changeTab('Burgers')"
+            >Burgers <span class="sr-only">(current)</span></a
+          >
+          <a class="nav-item nav-link" onclick="changeTab('Tacos')">Tacos</a>
+          <a class="nav-item nav-link" onclick="changeTab('Salads')">Salads</a>
+          <a class="nav-item nav-link" onclick="changeTab('Desserts')"
+            >Desserts</a
+          >
+          <a class="nav-item nav-link" onclick="changeTab('Drinks and Sides')"
+            >Drinks & Sides</a
+          >
         </div>
+      </nav>
+      <hr />
+      <!--Hamburgers-->
+      <h1 id="tabTitle">Burgers</h1>
+      <hr />
+      <div id="content"></div>
     </main>
-</body>
-
+    <!-- Modal Cancel Order-->
+    <div
+      class="modal fade"
+      id="cancelOrder"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="cancelOrderLabel"
+      aria-hidden="false"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title singup" id="cancelOrderLabel">
+              Cancel the order
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div
+            style="padding-top: 50px; padding-bottom: 50px; text-align: center"
+          >
+            Are you sure about cancelling the order?
+            <hr />
+          </div>
+          <div class="modalButtons">
+            <button
+              type="button"
+              class="btn btn-warning"
+              data-dismiss="modal"
+              onclick="cancelOrder()"
+            >
+              Yes, I want to cancel the order
+            </button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              No, I want to continue adding products
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
